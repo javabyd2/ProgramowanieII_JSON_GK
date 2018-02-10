@@ -30,5 +30,11 @@ public class Main {
         //Object to JSON in String
         //String jsonInString = mapper.writeValueAsString(z.pozycje);
 
+        Order readorders =
+                mapper.readValue(new File("order.json"),
+                        Order.class);
+        for(Item item: readorders.getItemList()){
+            System.out.println(item.getName()+"\t"+item.getPrice());
+        }
     }
 }
